@@ -12,25 +12,22 @@ import org.generated.landing.LandingResponse;
 
 public class VertxGrpcServer extends AbstractVerticle {
 
-  private static int httpPort = Integer
+  private static final int httpPort = Integer
     .parseInt(System.getenv()
       .getOrDefault("HTTP_PORT", "8888")
     );
 
 
   @Override
-  public void start(Promise<Void> startPromise) throws Exception {
+  public void start(Promise<Void> startPromise) {
     // Create gRPC server
     GrpcServer grpcServer = GrpcServer.server(vertx);
     // Create HTTP server
     HttpServer server = vertx.createHttpServer();
     // router.route("/").handler(this::landingHandler);
     // Grpc call handler
-    grpcServer.callHandler(LandingPageGrpc.getShowLandingMethod(), request ->{
-      request.handler(item ->{
-        landingResponse(request);
-      });
-    });
+    grpcServer.callHandler(LandingPageGrpc.getShowLandingMethod(),
+      request -> request.handler(item -> landingResponse(request)));
     // Start server on port: httpPort
     // GrpcServer can be mounted as router
     server
@@ -45,11 +42,11 @@ public class VertxGrpcServer extends AbstractVerticle {
   }
   private static void landingResponse(GrpcServerRequest<LandingRequest, LandingResponse> request) {
     // Set Grpc call handler service
-    GrpcServerResponse response = request.response();
+    GrpcServerResponse<LandingRequest, LandingResponse> response = request.response();
     LandingResponse res = LandingResponse
       .newBuilder()
       .setResponseCode(1)
-      .setResponseMsg("Response from server")
+      .setResponseMsg("Received request from client")
       .build();
     response.end(res);
   }

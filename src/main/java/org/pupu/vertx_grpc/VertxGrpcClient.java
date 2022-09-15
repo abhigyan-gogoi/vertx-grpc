@@ -3,6 +3,7 @@ package org.pupu.vertx_grpc;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.net.SocketAddress;
 import io.vertx.grpc.client.GrpcClient;
+import io.vertx.grpc.common.GrpcReadStream;
 import org.generated.landing.LandingPageGrpc;
 import org.generated.landing.LandingRequest;
 
@@ -18,11 +19,12 @@ public class VertxGrpcClient extends AbstractVerticle {
   }
 
   @Override
-  public void start() throws Exception {
+  public void start() {
     // Create gRPC client
     GrpcClient grpcClient = GrpcClient.client(vertx);
     // Connect to gRPC server
     SocketAddress server = SocketAddress.inetSocketAddress(httpPort, "localhost");
+    // Create client request
     grpcClient
       .request(server, LandingPageGrpc.getShowLandingMethod()).compose(request -> {
         request.end(LandingRequest
@@ -30,9 +32,9 @@ public class VertxGrpcClient extends AbstractVerticle {
           .setAddress("1234")
           .setMsg("Client Request")
           .build());
-        return request.response().compose(response -> response.last());
-      }).onSuccess(reply -> {
-        System.out.println("Received :"+reply.getResponseCode()+", "+reply.getResponseMsg());
-      });
+        return request.response().compose(GrpcReadStream::last);
+      }).onSuccess(reply ->
+        System.out.println("Received :"+reply.getResponseCode()+", "+reply.getResponseMsg())
+      );
   }
 }
