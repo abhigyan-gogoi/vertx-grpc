@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_package = "org.first";
+
+// Services
+// Landing page service
+service landingPage{
+  rpc ShowLanding(LandingRequest) returns (LandingResponse){}
+}
+
+// Messages
+message LandingRequest{
+  string address = 1;
+  string msg = 2;
+}
+
+message LandingResponse{
+  string responseMsg = 1;
+  string responseCode = 2;
+}
