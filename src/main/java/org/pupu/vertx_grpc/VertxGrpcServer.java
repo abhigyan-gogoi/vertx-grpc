@@ -4,12 +4,10 @@ import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Promise;
 import io.vertx.core.http.HttpServer;
 import io.vertx.core.json.JsonObject;
-import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.grpc.server.GrpcServer;
-import io.vertx.grpc.server.GrpcServerResponse;
 
-public class Server extends AbstractVerticle {
+public class VertxGrpcServer extends AbstractVerticle {
 
   private static int httpPort = Integer
     .parseInt(System.getenv()

@@ -753,16 +753,10 @@ public final class Server {
         getResponseMsgBytes();
 
     /**
-     * <code>string responseCode = 2;</code>
+     * <code>int32 responseCode = 2;</code>
      * @return The responseCode.
      */
-    java.lang.String getResponseCode();
-    /**
-     * <code>string responseCode = 2;</code>
-     * @return The bytes for responseCode.
-     */
-    com.google.protobuf.ByteString
-        getResponseCodeBytes();
+    int getResponseCode();
   }
   /**
    * Protobuf type {@code LandingResponse}
@@ -778,7 +772,6 @@ public final class Server {
     }
     private LandingResponse() {
       responseMsg_ = "";
-      responseCode_ = "";
     }
 
     @java.lang.Override
@@ -817,10 +810,9 @@ public final class Server {
               responseMsg_ = s;
               break;
             }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 16: {
 
-              responseCode_ = s;
+              responseCode_ = input.readInt32();
               break;
             }
             default: {
@@ -892,39 +884,13 @@ public final class Server {
     }
 
     public static final int RESPONSECODE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object responseCode_;
+    private int responseCode_;
     /**
-     * <code>string responseCode = 2;</code>
+     * <code>int32 responseCode = 2;</code>
      * @return The responseCode.
      */
-    public java.lang.String getResponseCode() {
-      java.lang.Object ref = responseCode_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        responseCode_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string responseCode = 2;</code>
-     * @return The bytes for responseCode.
-     */
-    public com.google.protobuf.ByteString
-        getResponseCodeBytes() {
-      java.lang.Object ref = responseCode_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        responseCode_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getResponseCode() {
+      return responseCode_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -944,8 +910,8 @@ public final class Server {
       if (!getResponseMsgBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, responseMsg_);
       }
-      if (!getResponseCodeBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, responseCode_);
+      if (responseCode_ != 0) {
+        output.writeInt32(2, responseCode_);
       }
       unknownFields.writeTo(output);
     }
@@ -959,8 +925,9 @@ public final class Server {
       if (!getResponseMsgBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, responseMsg_);
       }
-      if (!getResponseCodeBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, responseCode_);
+      if (responseCode_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, responseCode_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -979,8 +946,8 @@ public final class Server {
 
       if (!getResponseMsg()
           .equals(other.getResponseMsg())) return false;
-      if (!getResponseCode()
-          .equals(other.getResponseCode())) return false;
+      if (getResponseCode()
+          != other.getResponseCode()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -995,7 +962,7 @@ public final class Server {
       hash = (37 * hash) + RESPONSEMSG_FIELD_NUMBER;
       hash = (53 * hash) + getResponseMsg().hashCode();
       hash = (37 * hash) + RESPONSECODE_FIELD_NUMBER;
-      hash = (53 * hash) + getResponseCode().hashCode();
+      hash = (53 * hash) + getResponseCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1131,7 +1098,7 @@ public final class Server {
         super.clear();
         responseMsg_ = "";
 
-        responseCode_ = "";
+        responseCode_ = 0;
 
         return this;
       }
@@ -1213,9 +1180,8 @@ public final class Server {
           responseMsg_ = other.responseMsg_;
           onChanged();
         }
-        if (!other.getResponseCode().isEmpty()) {
-          responseCode_ = other.responseCode_;
-          onChanged();
+        if (other.getResponseCode() != 0) {
+          setResponseCode(other.getResponseCode());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1322,78 +1288,32 @@ public final class Server {
         return this;
       }
 
-      private java.lang.Object responseCode_ = "";
+      private int responseCode_ ;
       /**
-       * <code>string responseCode = 2;</code>
+       * <code>int32 responseCode = 2;</code>
        * @return The responseCode.
        */
-      public java.lang.String getResponseCode() {
-        java.lang.Object ref = responseCode_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          responseCode_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public int getResponseCode() {
+        return responseCode_;
       }
       /**
-       * <code>string responseCode = 2;</code>
-       * @return The bytes for responseCode.
-       */
-      public com.google.protobuf.ByteString
-          getResponseCodeBytes() {
-        java.lang.Object ref = responseCode_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          responseCode_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string responseCode = 2;</code>
+       * <code>int32 responseCode = 2;</code>
        * @param value The responseCode to set.
        * @return This builder for chaining.
        */
-      public Builder setResponseCode(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setResponseCode(int value) {
+        
         responseCode_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string responseCode = 2;</code>
+       * <code>int32 responseCode = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearResponseCode() {
         
-        responseCode_ = getDefaultInstance().getResponseCode();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string responseCode = 2;</code>
-       * @param value The bytes for responseCode to set.
-       * @return This builder for chaining.
-       */
-      public Builder setResponseCodeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        responseCode_ = value;
+        responseCode_ = 0;
         onChanged();
         return this;
       }
@@ -1472,7 +1392,7 @@ public final class Server {
       "\n\014server.proto\".\n\016LandingRequest\022\017\n\007addr" +
       "ess\030\001 \001(\t\022\013\n\003msg\030\002 \001(\t\"<\n\017LandingRespons" +
       "e\022\023\n\013responseMsg\030\001 \001(\t\022\024\n\014responseCode\030\002" +
-      " \001(\t2A\n\013LandingPage\0222\n\013ShowLanding\022\017.Lan" +
+      " \001(\0052A\n\013landingPage\0222\n\013ShowLanding\022\017.Lan" +
       "dingRequest\032\020.LandingResponse\"\000B\013\n\torg.f" +
       "irstb\006proto3"
     };

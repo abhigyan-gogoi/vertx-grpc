@@ -4,7 +4,7 @@ option java_package = "org.first";
 
 // Services
 // Landing page service
-service LandingPage{
+service landingPage{
   rpc ShowLanding(LandingRequest) returns (LandingResponse){}
 }
 
@@ -16,5 +16,5 @@ message LandingRequest{
 
 message LandingResponse{
   string responseMsg = 1;
-  string responseCode = 2;
+  int32 responseCode = 2;
 }

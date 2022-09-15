@@ -12,7 +12,7 @@ public class TestServer {
 
   @BeforeEach
   void deploy_verticle(Vertx vertx, VertxTestContext testContext) {
-    vertx.deployVerticle(new Server(), testContext.succeeding(id -> testContext.completeNow()));
+    vertx.deployVerticle(new VertxGrpcServer(), testContext.succeeding(id -> testContext.completeNow()));
   }
 
   @Test

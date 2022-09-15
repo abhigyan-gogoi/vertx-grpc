@@ -24,11 +24,11 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.15.0)",
     comments = "Source: server.proto")
-public final class LandingPageGrpc {
+public final class landingPageGrpc {
 
-  private LandingPageGrpc() {}
+  private landingPageGrpc() {}
 
-  public static final String SERVICE_NAME = "LandingPage";
+  public static final String SERVICE_NAME = "landingPage";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<org.first.Server.LandingRequest,
@@ -42,20 +42,20 @@ public final class LandingPageGrpc {
   public static io.grpc.MethodDescriptor<org.first.Server.LandingRequest,
       org.first.Server.LandingResponse> getShowLandingMethod() {
     io.grpc.MethodDescriptor<org.first.Server.LandingRequest, org.first.Server.LandingResponse> getShowLandingMethod;
-    if ((getShowLandingMethod = LandingPageGrpc.getShowLandingMethod) == null) {
-      synchronized (LandingPageGrpc.class) {
-        if ((getShowLandingMethod = LandingPageGrpc.getShowLandingMethod) == null) {
-          LandingPageGrpc.getShowLandingMethod = getShowLandingMethod = 
+    if ((getShowLandingMethod = landingPageGrpc.getShowLandingMethod) == null) {
+      synchronized (landingPageGrpc.class) {
+        if ((getShowLandingMethod = landingPageGrpc.getShowLandingMethod) == null) {
+          landingPageGrpc.getShowLandingMethod = getShowLandingMethod = 
               io.grpc.MethodDescriptor.<org.first.Server.LandingRequest, org.first.Server.LandingResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "LandingPage", "ShowLanding"))
+                  "landingPage", "ShowLanding"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.first.Server.LandingRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   org.first.Server.LandingResponse.getDefaultInstance()))
-                  .setSchemaDescriptor(new LandingPageMethodDescriptorSupplier("ShowLanding"))
+                  .setSchemaDescriptor(new landingPageMethodDescriptorSupplier("ShowLanding"))
                   .build();
           }
         }
@@ -66,24 +66,24 @@ public final class LandingPageGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static LandingPageStub newStub(io.grpc.Channel channel) {
-    return new LandingPageStub(channel);
+  public static landingPageStub newStub(io.grpc.Channel channel) {
+    return new landingPageStub(channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static LandingPageBlockingStub newBlockingStub(
+  public static landingPageBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    return new LandingPageBlockingStub(channel);
+    return new landingPageBlockingStub(channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static LandingPageFutureStub newFutureStub(
+  public static landingPageFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    return new LandingPageFutureStub(channel);
+    return new landingPageFutureStub(channel);
   }
 
   /**
@@ -92,7 +92,7 @@ public final class LandingPageGrpc {
    * Landing page service
    * </pre>
    */
-  public static abstract class LandingPageImplBase implements io.grpc.BindableService {
+  public static abstract class landingPageImplBase implements io.grpc.BindableService {
 
     /**
      */
@@ -120,20 +120,20 @@ public final class LandingPageGrpc {
    * Landing page service
    * </pre>
    */
-  public static final class LandingPageStub extends io.grpc.stub.AbstractStub<LandingPageStub> {
-    private LandingPageStub(io.grpc.Channel channel) {
+  public static final class landingPageStub extends io.grpc.stub.AbstractStub<landingPageStub> {
+    private landingPageStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private LandingPageStub(io.grpc.Channel channel,
+    private landingPageStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected LandingPageStub build(io.grpc.Channel channel,
+    protected landingPageStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new LandingPageStub(channel, callOptions);
+      return new landingPageStub(channel, callOptions);
     }
 
     /**
@@ -151,20 +151,20 @@ public final class LandingPageGrpc {
    * Landing page service
    * </pre>
    */
-  public static final class LandingPageBlockingStub extends io.grpc.stub.AbstractStub<LandingPageBlockingStub> {
-    private LandingPageBlockingStub(io.grpc.Channel channel) {
+  public static final class landingPageBlockingStub extends io.grpc.stub.AbstractStub<landingPageBlockingStub> {
+    private landingPageBlockingStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private LandingPageBlockingStub(io.grpc.Channel channel,
+    private landingPageBlockingStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected LandingPageBlockingStub build(io.grpc.Channel channel,
+    protected landingPageBlockingStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new LandingPageBlockingStub(channel, callOptions);
+      return new landingPageBlockingStub(channel, callOptions);
     }
 
     /**
@@ -181,20 +181,20 @@ public final class LandingPageGrpc {
    * Landing page service
    * </pre>
    */
-  public static final class LandingPageFutureStub extends io.grpc.stub.AbstractStub<LandingPageFutureStub> {
-    private LandingPageFutureStub(io.grpc.Channel channel) {
+  public static final class landingPageFutureStub extends io.grpc.stub.AbstractStub<landingPageFutureStub> {
+    private landingPageFutureStub(io.grpc.Channel channel) {
       super(channel);
     }
 
-    private LandingPageFutureStub(io.grpc.Channel channel,
+    private landingPageFutureStub(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected LandingPageFutureStub build(io.grpc.Channel channel,
+    protected landingPageFutureStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
-      return new LandingPageFutureStub(channel, callOptions);
+      return new landingPageFutureStub(channel, callOptions);
     }
 
     /**
@@ -213,10 +213,10 @@ public final class LandingPageGrpc {
       io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>,
       io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
-    private final LandingPageImplBase serviceImpl;
+    private final landingPageImplBase serviceImpl;
     private final int methodId;
 
-    MethodHandlers(LandingPageImplBase serviceImpl, int methodId) {
+    MethodHandlers(landingPageImplBase serviceImpl, int methodId) {
       this.serviceImpl = serviceImpl;
       this.methodId = methodId;
     }
@@ -245,9 +245,9 @@ public final class LandingPageGrpc {
     }
   }
 
-  private static abstract class LandingPageBaseDescriptorSupplier
+  private static abstract class landingPageBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    LandingPageBaseDescriptorSupplier() {}
+    landingPageBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
@@ -256,21 +256,21 @@ public final class LandingPageGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("LandingPage");
+      return getFileDescriptor().findServiceByName("landingPage");
     }
   }
 
-  private static final class LandingPageFileDescriptorSupplier
-      extends LandingPageBaseDescriptorSupplier {
-    LandingPageFileDescriptorSupplier() {}
+  private static final class landingPageFileDescriptorSupplier
+      extends landingPageBaseDescriptorSupplier {
+    landingPageFileDescriptorSupplier() {}
   }
 
-  private static final class LandingPageMethodDescriptorSupplier
-      extends LandingPageBaseDescriptorSupplier
+  private static final class landingPageMethodDescriptorSupplier
+      extends landingPageBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    LandingPageMethodDescriptorSupplier(String methodName) {
+    landingPageMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -285,11 +285,11 @@ public final class LandingPageGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (LandingPageGrpc.class) {
+      synchronized (landingPageGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new LandingPageFileDescriptorSupplier())
+              .setSchemaDescriptor(new landingPageFileDescriptorSupplier())
               .addMethod(getShowLandingMethod())
               .build();
         }
