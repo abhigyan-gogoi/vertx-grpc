@@ -1,10 +1,15 @@
 syntax = "proto3";
 
-option java_package = "org.first";
+option java_multiple_files = true;
+option java_package = "org.generated.landing";
+option java_outer_classname = "LandingProto";
+option objc_class_prefix = "LND";
+
+package landing;
 
 // Services
 // Landing page service
-service landingPage{
+service LandingPage{
   rpc ShowLanding(LandingRequest) returns (LandingResponse){}
 }
 
