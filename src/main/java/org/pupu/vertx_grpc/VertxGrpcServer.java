@@ -3,9 +3,8 @@ package org.pupu.vertx_grpc;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Promise;
 import io.vertx.core.http.HttpServer;
-import io.vertx.core.json.JsonObject;
-import io.vertx.ext.web.RoutingContext;
 import io.vertx.grpc.server.GrpcServer;
+import io.vertx.grpc.server.GrpcServerRequest;
 import io.vertx.grpc.server.GrpcServerResponse;
 import org.generated.landing.LandingPageGrpc;
 import org.generated.landing.LandingRequest;
@@ -29,12 +28,7 @@ public class VertxGrpcServer extends AbstractVerticle {
     // Grpc call handler
     grpcServer.callHandler(LandingPageGrpc.getShowLandingMethod(), request ->{
       request.handler(item ->{
-        // Set Grpc call handler service
-        GrpcServerResponse<LandingRequest, LandingResponse> response = request.response();
-        LandingResponse res = LandingResponse.newBuilder()
-          .setResponseMsg("Hello from gRPC call handler service")
-          .build();
-        response.end();
+        landingResponse(request);
       });
     });
     // Start server on port: httpPort
@@ -48,5 +42,15 @@ public class VertxGrpcServer extends AbstractVerticle {
         }
       )
       .onFailure(startPromise::fail);
+  }
+  private static void landingResponse(GrpcServerRequest<LandingRequest, LandingResponse> request) {
+    // Set Grpc call handler service
+    GrpcServerResponse response = request.response();
+    LandingResponse res = LandingResponse
+      .newBuilder()
+      .setResponseCode(1)
+      .setResponseMsg("Response from server")
+      .build();
+    response.end(res);
   }
 }
